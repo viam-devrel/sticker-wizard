@@ -1,0 +1,16 @@
+<script lang="ts">
+import Option from '$lib/components/option.svelte'
+
+export let options: string[]
+export let selectedOption: number;
+
+</script>
+
+<div class="bg-black text-white absolute top-4 right-4 py-2 max-w-[250px] flex flex-col gap-1">
+  { #each options as option, idx }
+    <Option  
+      text={option}
+      isSelected={selectedOption == idx}
+    />
+  {/each}
+</div>
