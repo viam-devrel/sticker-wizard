@@ -5,12 +5,12 @@
   import wizardImg from '$lib/assets/wizard.png'
   import wizardJSON from '$lib/assets/wizard.json?url'
 
-  export const playerPosition: [number, number, number] = [0, 1, 0]
+  export const playerPosition: [number, number, number] = [0, 0, 0]
   const mesh = new Mesh()
   mesh.position.set(...playerPosition)
   mesh.castShadow = true
 
-  let animation = 'idle'
+  let animation = 'idle-left'
 
   const keyboard = { x: 0 }
   const pressed = new Set<string>()
@@ -40,10 +40,14 @@
 
 
   useTask((delta) => {
-    if (keyboard.x != 0) {
-      animation = 'walk'
-    } else {
-      animation = 'idle'
+    if (keyboard.x > 0) {
+      animation = 'walk-left'
+    } else if (keyboard.x < 0) {
+      animation = 'walk-right'
+    } else if (keyboard.x == 0 && animation === 'walk-left') {
+      animation = 'idle-left'
+    } else if (keyboard.x == 0 && animation === 'walk-right') {
+      animation = 'idle-right'
     }
     playerPosition[0] += -keyboard.x * (delta * 2)
     mesh.position.set(...playerPosition)

@@ -13,6 +13,7 @@
   let camera: PerspectiveCamera
 
   let currentCameraPosition = cameraPosition
+  let currentCameraLookAt = cameraLookAt
 
   $: {
     if (currentCameraPosition.distanceTo(cameraPosition) == 0) {
@@ -31,6 +32,18 @@
       }
       camera.position.set(currentCameraPosition.x, currentCameraPosition.y, currentCameraPosition.z)
     }
+
+    // this is janky fix it -- use quaternions instead of 2 vectors?
+    if (currentCameraLookAt.distanceTo(cameraLookAt) != 0) {
+      if (currentCameraLookAt.distanceTo(cameraLookAt) < delta * DELTA_MULTIPLIER) {
+        currentCameraLookAt = cameraLookAt
+      } else {
+        let unitVector = new Vector3();
+        unitVector = unitVector.subVectors(cameraLookAt, currentCameraLookAt).normalize().multiplyScalar(delta * DELTA_MULTIPLIER)
+        currentCameraLookAt.add(unitVector)
+      }
+      camera.lookAt(currentCameraLookAt)
+    }
   })
 </script>
 
@@ -40,8 +53,7 @@
   position={[cameraPosition.x, cameraPosition.y, cameraPosition.z]}
   on:create={({ ref }) => {
     ref.lookAt(cameraLookAt.x, cameraLookAt.y, cameraLookAt.z)
-  }}
-/>
+  }}/>
 
 <Sky />
 
@@ -52,4 +64,4 @@
   <T.MeshStandardMaterial />
 </T.Mesh>
 
-<Player playerPosition={[0, cameraPosition.y, 0]}/>
+<Player/>

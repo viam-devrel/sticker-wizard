@@ -9,20 +9,25 @@ import title from '$lib/assets/title.png'
 
 type State = 'title' | 'quiz' | 'results'
 
-const QUIZ_CAMERA_POS: Vector3 = new Vector3(0, 0, 3)
 const TITLE_CAMERA_POS: Vector3 = new Vector3(0, 0, 8)
+const TITLE_CAMERA_LOOKAT: Vector3 = new Vector3(0, 1, 0)
+const QUIZ_CAMERA_POS: Vector3 = new Vector3(0, 0, 3)
+const QUIZ_CAMERA_LOOKAT: Vector3 = new Vector3(0, 0, 0)
 
 let gameState: State = 'title'
 let cameraPosition: Vector3 = TITLE_CAMERA_POS;
+let cameraLookAt: Vector3 = TITLE_CAMERA_LOOKAT;
 
 $: {
   switch (gameState) {
     case 'title': {
       cameraPosition = TITLE_CAMERA_POS
+      cameraLookAt = TITLE_CAMERA_LOOKAT
       break
     }
     case 'quiz': {
       cameraPosition = QUIZ_CAMERA_POS
+      cameraLookAt = QUIZ_CAMERA_LOOKAT
       break
     }
   }
@@ -45,7 +50,7 @@ $: {
   <Canvas>
     <Scene
       {cameraPosition}
-      cameraLookAt={new Vector3(0, 3, 0)}
+      {cameraLookAt}
       onCameraPositionChange={() => {
         if (cameraPosition.distanceTo(QUIZ_CAMERA_POS) == 0)  {
           setTimeout(() => {
