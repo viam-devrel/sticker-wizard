@@ -9,10 +9,10 @@ import title from '$lib/assets/title.png'
 
 type State = 'title' | 'quiz' | 'results'
 
-const TITLE_CAMERA_POS: Vector3 = new Vector3(0, 0, 8)
-const TITLE_CAMERA_LOOKAT: Vector3 = new Vector3(0, 1, 0)
-const QUIZ_CAMERA_POS: Vector3 = new Vector3(0, 0, 3)
-const QUIZ_CAMERA_LOOKAT: Vector3 = new Vector3(0, 0, 0)
+const TITLE_CAMERA_POS: Vector3 = new Vector3(0, 0, 12)
+const TITLE_CAMERA_LOOKAT: Vector3 = new Vector3(0, 0, 0)
+const QUIZ_CAMERA_POS: Vector3 = new Vector3(0, -4, 5)
+const QUIZ_CAMERA_LOOKAT: Vector3 = new Vector3(0, -4, 0)
 
 let gameState: State = 'title'
 let cameraPosition: Vector3 = TITLE_CAMERA_POS;
@@ -38,8 +38,8 @@ $: {
 <div class="relative w-[568px] h-[320px] m-20">
   { #if gameState == 'title'}
   <div class="absolute w-full h-full flex flex-col justify-end items-center">
-    <img class="mb-16 w-full" src={title} alt="sticker wizard">
-    <button class="border-2 border-white p-2 mb-2 w-fit" on:click={() => {
+    <img class="w-full mb-16" src={title} alt="sticker wizard">
+    <button class="border-2 border-white p-1 w-fit text-white text-xs" on:click={() => {
       cameraPosition = QUIZ_CAMERA_POS
     }}>start</button>
   </div>
@@ -58,11 +58,6 @@ $: {
           }, 100)
         }
       }}
-    />
-    <T.DirectionalLight
-      intensity={2}
-      castShadow
-      position={[1, 1, 1]}
     />
   </Canvas>
 </div>

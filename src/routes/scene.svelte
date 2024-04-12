@@ -1,14 +1,20 @@
 <script lang="ts">
   import { T, useTask } from '@threlte/core'
-  import { Grid, Sky } from '@threlte/extras'
+  import { Grid, Sky, useTexture } from '@threlte/extras'
 	import Player from './player.svelte';
 	import { PerspectiveCamera, Vector3 } from 'three';
+  import bgImage from '$lib/assets/background.png'
+  import ladderImage from '$lib/assets/ladder.png'
+	import Bucket from './bucket.svelte';
 
   export let cameraPosition: Vector3;
   export let cameraLookAt: Vector3;
   export let onCameraPositionChange: () => void
 
   const DELTA_MULTIPLIER = 15
+
+  const bgTexture = useTexture(bgImage)
+  const ladderTexture = useTexture(ladderImage)
 
   let camera: PerspectiveCamera
 
@@ -34,18 +40,20 @@
     }
 
     // this is janky fix it -- use quaternions instead of 2 vectors?
-    if (currentCameraLookAt.distanceTo(cameraLookAt) != 0) {
-      if (currentCameraLookAt.distanceTo(cameraLookAt) < delta * DELTA_MULTIPLIER) {
-        currentCameraLookAt = cameraLookAt
-      } else {
-        let unitVector = new Vector3();
-        unitVector = unitVector.subVectors(cameraLookAt, currentCameraLookAt).normalize().multiplyScalar(delta * DELTA_MULTIPLIER)
-        currentCameraLookAt.add(unitVector)
-      }
-      camera.lookAt(currentCameraLookAt)
-    }
+    // if (currentCameraLookAt.distanceTo(cameraLookAt) != 0) {
+    //   if (currentCameraLookAt.distanceTo(cameraLookAt) < delta * DELTA_MULTIPLIER) {
+    //     currentCameraLookAt = cameraLookAt
+    //   } else {
+    //     let unitVector = new Vector3();
+    //     unitVector = unitVector.subVectors(cameraLookAt, currentCameraLookAt).normalize().multiplyScalar(delta * DELTA_MULTIPLIER)
+    //     currentCameraLookAt.add(unitVector)
+    //   }
+    //   camera.lookAt(currentCameraLookAt)
+    // }
   })
 </script>
+
+<T.PointLight position={[0, 0, 0]} color="white" distance={10}/>
 
 <T.PerspectiveCamera
   bind:ref={camera}
@@ -55,13 +63,47 @@
     ref.lookAt(cameraLookAt.x, cameraLookAt.y, cameraLookAt.z)
   }}/>
 
-<Sky />
 
 <Grid position.y={0.001} type='polar' fadeDistance={10} infiniteGrid />
 
-<T.Mesh receiveShadow rotation.x={-Math.PI / 2}>
-  <T.PlaneGeometry args={[1000, 1000]} />
-  <T.MeshStandardMaterial />
-</T.Mesh>
-
 <Player/>
+
+<Bucket />
+
+<T.Sprite
+  scale={1.1}
+  position.x={-2.5}
+  position.z={0}
+  position.y={-0.5}
+>
+  {#if $ladderTexture}
+    <T.MeshBasicMaterial map={$ladderTexture} transparent={true} />
+  {/if}
+  <T.PlaneGeometry
+    args={[0.73, 8.07]}
+  />
+</T.Sprite>
+
+<T.Sprite
+  scale={13}
+  position.x={0}
+  position.z={-0.01}
+  position.y={0.5}
+>
+  <T.PlaneGeometry
+    args={[2, 0.8]}
+  />
+  {#if $bgTexture}
+    <T.MeshBasicMaterial map={$bgTexture}
+    />
+  {/if}
+</T.Sprite>
+
+<T.Mesh
+  position={[0, -7, 0]}
+>
+  <T.PlaneGeometry
+    args={[30, 5]}
+  />
+  <T.MeshBasicMaterial color="black"/>
+</T.Mesh>

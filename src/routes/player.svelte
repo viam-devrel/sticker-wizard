@@ -5,61 +5,59 @@
   import wizardImg from '$lib/assets/wizard.png'
   import wizardJSON from '$lib/assets/wizard.json?url'
 
-  export const playerPosition: [number, number, number] = [0, 0, 0]
+  export const playerPosition: [number, number, number] = [0, -4.5, 0.01]
   const mesh = new Mesh()
   mesh.position.set(...playerPosition)
   mesh.castShadow = true
 
   let animation = 'idle-left'
 
-  const keyboard = { x: 0 }
-  const pressed = new Set<string>()
-
-  const handleKey = (key: string, value: 0 | 1) => {
-    switch (key.toLowerCase()) {
-      case 'a':
-      case 'arrowleft':
-        return (keyboard.x = +value)
-      case 'd':
-      case 'arrowright':
-        return (keyboard.x = -value)
-    }
-    return
-  }
-
-  const handleKeydown = (e: KeyboardEvent) => {
-    pressed.add(e.key)
-    pressed.forEach((key) => handleKey(key, 1))
-  }
-
-  const handleKeyup = (e: KeyboardEvent) => {
-    pressed.delete(e.key)
-    handleKey(e.key, 0)
-    pressed.forEach((key) => handleKey(key, 1))
-  }
-
+  // idle must be an integer
+  const playerTask = { x: Math.random() + 1, y: 0, idle: 0 };
 
   useTask((delta) => {
-    if (keyboard.x > 0) {
-      animation = 'walk-left'
-    } else if (keyboard.x < 0) {
-      animation = 'walk-right'
-    } else if (keyboard.x == 0 && animation === 'walk-left') {
-      animation = 'idle-left'
-    } else if (keyboard.x == 0 && animation === 'walk-right') {
-      animation = 'idle-right'
+    if (playerTask.idle > 0) {
+      playerTask.idle -= 0.20
+      return
     }
-    playerPosition[0] += -keyboard.x * (delta * 2)
+
+    if (playerTask.x > 0) {
+      animation = 'walk-right'
+    } else if (playerTask.x < 0) {
+      animation = 'walk-left'
+    } else if (playerTask.x == 0 && animation === 'walk-left') {
+      animation = 'idle-left'
+    } else if (playerTask.x == 0 && animation === 'walk-right') {
+      animation = 'idle-right'
+    } else {
+      // assign new task
+      const destination = Math.random() * 4
+
+      const shouldStayIdle = Math.random() < 0.5
+      if (shouldStayIdle) {
+        playerTask.idle = Math.floor(destination + 2)
+      } else {
+        if (mesh.position.x > 5) {
+          playerTask.x = -destination
+        } else if (mesh.position.x < -5) {
+          playerTask.x = destination
+        } else {
+          playerTask.x = Math.sign((Math.random() * 2) - 1) * destination
+        }
+      }
+    }
+
+    const distance = Math.sign(playerTask.x) * delta
+    playerPosition[0] += distance
     mesh.position.set(...playerPosition)
+
+    playerTask.x += -distance
+    if (Math.abs(playerTask.x) < 0.5) {
+      playerTask.x = 0 
+    }
   })
 </script>
 
-<svelte:window
-  on:keydown={handleKeydown}
-  on:keyup={handleKeyup}
-/>
-
-<!-- animations aren't working!! -->
 <T is={mesh}>
   <AnimatedSpriteMaterial
     animation={animation}
