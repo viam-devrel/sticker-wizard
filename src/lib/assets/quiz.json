@@ -1,19 +1,15 @@
-
-[{
-  "question": "What's your favorite corner of the office?",
-  "options": [
-    "F12, I literally love meetings",
-    "63rd and Broadway. Don’t ask",
-    "W1, my sweet escape",
-    "The larger personal bathroom"
-  ] 
-},
-{
-  "question": "If you could have one Viam component as an extension of your body, what would it be?",
-  "options": [
-    "Gantry",
-    "Moisture sensor",
-    "Gamepad",
-    "Wheeled base"
-  ] 
-}]
+[
+	{
+		"question": "What's your favorite corner of the office?",
+		"options": [
+			"F12, I literally love meetings",
+			"63rd and Broadway. Don’t ask",
+			"W1, my sweet escape",
+			"The larger personal bathroom"
+		]
+	},
+	{
+		"question": "If you could have one Viam component as an extension of your body, what would it be?",
+		"options": ["Gantry", "Moisture sensor", "Gamepad", "Wheeled base"]
+	}
+]
