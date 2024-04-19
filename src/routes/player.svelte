@@ -4,11 +4,16 @@
 	import { Mesh, Vector3 } from 'three';
 	import wizardImg from '$lib/assets/wizard.png';
 	import wizardJSON from '$lib/assets/wizard.json?url';
+	import meteorImg from '$lib/assets/meteor.png';
+	import meteorJSON from '$lib/assets/meteor.json?url';
 	import { createEventDispatcher } from 'svelte';
 
 	type State = 'random-walk' | 'walk-to-ladder' | 'idle';
 	let state: State = 'random-walk';
 	let animation = 'idle-left';
+
+	let playMeteor: () => void;
+	let pauseMeteor: () => void;
 
 	const dispatch = createEventDispatcher<{ change: { position: Vector3 } }>();
 
@@ -26,6 +31,10 @@
 		state = 'walk-to-ladder';
 		task.x = -3 - mesh.position.x;
 		task.y = 9.5;
+	};
+
+	export const fireMeteor = (): void => {
+		playMeteor();
 	};
 
 	const assignRandomTask = () => {
@@ -100,3 +109,15 @@
 	<AnimatedSpriteMaterial {animation} textureUrl={wizardImg} dataUrl={wizardJSON} />
 	<T.PlaneGeometry />
 </T>
+
+<T.Sprite scale={2.75} position.y={4.15} position.x={-6} position.z={0.01}>
+	<AnimatedSpriteMaterial
+		textureUrl={meteorImg}
+		dataUrl={meteorJSON}
+		autoplay={false}
+		loop={false}
+		bind:pause={pauseMeteor}
+		bind:play={playMeteor}
+	/>
+	<T.PlaneGeometry args={[2.4, 1.53]} />
+</T.Sprite>

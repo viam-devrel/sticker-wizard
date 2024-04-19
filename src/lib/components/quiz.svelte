@@ -4,6 +4,9 @@
 	import OptionsContainer from '$lib/components/options-container.svelte';
 	import quizJSON from '$lib/assets/quiz.json';
 	import { Quiz, type } from '$lib';
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher<{ select: void }>();
 
 	const quiz = new Quiz(quizJSON);
 	let selectedOptionIdx = 0;
@@ -28,6 +31,7 @@
 	const handleSelectOption = () => {
 		quiz.selectOption(selectedOptionIdx);
 		currentQuestion = quiz.nextQuestion();
+		dispatch('select');
 	};
 
 	let isTypingComplete = false;

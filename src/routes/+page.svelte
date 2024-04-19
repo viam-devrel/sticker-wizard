@@ -46,14 +46,20 @@
 
 <div class="relative w-[568px] h-[320px] m-20">
 	{#if gameState == 'title'}
-		<div class="absolute w-full h-full flex flex-col justify-end items-center">
-			<img class="w-full mb-16" src={title} alt="sticker wizard" />
-			<button class="border-2 border-white p-1 w-fit text-white text-xs" on:click={handleOnStart}
-				>start</button
-			>
+		<div class="absolute w-full h-full flex flex-col">
+			<img class="w-full pt-[128px] px-1" src={title} alt="sticker wizard" />
+			<div class="w-full flex justify-center px-4">
+				<button class="border-2 border-white p-1 w-fit text-white text-xs" on:click={handleOnStart}
+					>start</button
+				>
+			</div>
 		</div>
 	{:else if gameState == 'quiz'}
-		<Quiz />
+		<Quiz
+			on:select={() => {
+				scene.playerFireMeteor();
+			}}
+		/>
 	{/if}
 
 	<Canvas>

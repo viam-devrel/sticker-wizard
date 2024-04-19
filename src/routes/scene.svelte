@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { T, useTask } from '@threlte/core';
-	import { Grid, useTexture } from '@threlte/extras';
+	import { useTexture } from '@threlte/extras';
 	import Player from './player.svelte';
 	import { PerspectiveCamera, Vector3 } from 'three';
 	import bgImage from '$lib/assets/background.png';
@@ -32,6 +32,9 @@
 	export const playerGoToLadder = () => {
 		player.goToLadder();
 	};
+	export const playerFireMeteor = () => {
+		player.fireMeteor();
+	};
 
 	useTask((delta) => {
 		if (currentCameraPosition.distanceTo(cameraPosition) != 0) {
@@ -61,8 +64,6 @@
 	makeDefault
 	position={[cameraPosition.x, cameraPosition.y, cameraPosition.z]}
 />
-
-<Grid position.y={0.001} type="polar" fadeDistance={10} infiniteGrid />
 
 <Player
 	bind:this={player}
