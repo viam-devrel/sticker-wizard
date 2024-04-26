@@ -5,16 +5,22 @@
 	import quizJSON from '$lib/assets/quiz.json';
 	import { Quiz, type } from '$lib';
 	import { createEventDispatcher } from 'svelte';
+	import { wait } from '$lib/utils';
 
-	const dispatch = createEventDispatcher<{ select: void }>();
+	const dispatch = createEventDispatcher<{
+		select: void;
+		complete: void;
+	}>();
 
 	const quiz = new Quiz(quizJSON);
 	let selectedOptionIdx = 0;
 	let currentQuestion = quiz.currentQuestion();
 
 	$: {
+		// Reached the end of the quiz
 		if (!currentQuestion) {
 			console.log(quiz.getResults());
+			dispatch('complete');
 		}
 	}
 

@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { T, useTask } from '@threlte/core';
 	import { AnimatedSpriteMaterial } from '@threlte/extras';
+	import { createEventDispatcher } from 'svelte';
 	import { Mesh, Vector3 } from 'three';
 	import wizardImg from '$lib/assets/wizard.png';
 	import wizardJSON from '$lib/assets/wizard.json?url';
 	import meteorImg from '$lib/assets/meteor.png';
 	import meteorJSON from '$lib/assets/meteor.json?url';
-	import { createEventDispatcher } from 'svelte';
+	import { wait } from '$lib/utils';
 
 	type State = 'random-walk' | 'walk-to-ladder' | 'idle';
 	let state: State = 'random-walk';
@@ -27,10 +28,15 @@
 		dispatch('change', { position: new Vector3(...position) });
 	}
 
-	export const goToLadder = (): void => {
+	export const goToLadder = async () => {
 		state = 'walk-to-ladder';
 		task.x = -3 - mesh.position.x;
 		task.y = 9.5;
+
+		// return when the player has reached the top
+		while (task.y !== 0) {
+			await wait(100);
+		}
 	};
 
 	export const fireMeteor = (): void => {
@@ -84,7 +90,7 @@
 
 		// move
 		if (Math.abs(task.x) > 0) {
-			const distance = Math.sign(task.x) * delta;
+			const distance = Math.sign(task.x) * delta * 1.5;
 			position[0] += distance;
 			mesh.position.set(...position);
 
@@ -93,7 +99,7 @@
 				task.x = 0;
 			}
 		} else if (task.y > 0) {
-			const distance = Math.sign(task.y) * delta;
+			const distance = Math.sign(task.y) * delta * 1.75;
 			position[1] += distance;
 			mesh.position.set(...position);
 

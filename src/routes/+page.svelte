@@ -1,19 +1,21 @@
 <script lang="ts">
 	import { Canvas, T } from '@threlte/core';
 	import Scene from './scene.svelte';
+	import { onMount, type SvelteComponent } from 'svelte';
 
 	import '../app.css';
 	import { Vector3 } from 'three';
 	import Quiz from '$lib/components/quiz.svelte';
 	import title from '$lib/assets/title.png';
-	import type { SvelteComponent } from 'svelte';
+	import Results from './results.svelte';
 
-	type State = 'title' | 'quiz' | 'results';
+	type State = 'rotate-phone' | 'title' | 'pre-quiz' | 'quiz' | 'results';
 
 	const TITLE_CAMERA_POS: Vector3 = new Vector3(0, 0, 12);
 	const QUIZ_CAMERA_POS: Vector3 = new Vector3(-3, -4, 10);
 
 	let gameState: State = 'title';
+	let prevGameState: State | undefined = undefined;
 	let cameraPosition: Vector3 = TITLE_CAMERA_POS;
 
 	let scene: SvelteComponent;
@@ -27,9 +29,10 @@
 		}
 	}
 
-	const handleOnStart = () => {
+	const handleOnStart = async () => {
+		gameState = 'pre-quiz';
+		await scene.playerGoToLadder();
 		gameState = 'quiz';
-		scene.playerGoToLadder();
 	};
 
 	const handlePlayerPositionChange = (event: CustomEvent<{ position: Vector3 }>) => {
@@ -42,9 +45,25 @@
 			);
 		}
 	};
+
+	onMount(() => {
+		if (screen.orientation.type.includes('portrait')) {
+			prevGameState = gameState;
+			gameState = 'rotate-phone';
+		}
+
+		window.addEventListener('orientationchange', () => {
+			if (screen.orientation.type.includes('portrait')) {
+				prevGameState = gameState;
+				gameState = 'rotate-phone';
+			} else if (screen.orientation.type.includes('landscape') && gameState === 'rotate-phone') {
+				gameState = prevGameState ?? 'title';
+			}
+		});
+	});
 </script>
 
-<div class="relative w-[568px] h-[320px] m-20">
+<div class="relative w-screen h-screen lg:w-[568px] lg:h-[320px] bg-gray-800">
 	{#if gameState == 'title'}
 		<div class="absolute w-full h-full flex flex-col">
 			<img class="w-full pt-[128px] px-1" src={title} alt="sticker wizard" />
@@ -59,7 +78,19 @@
 			on:select={() => {
 				scene.playerFireMeteor();
 			}}
+			on:complete={() => {
+				gameState = 'results';
+			}}
 		/>
+	{:else if gameState == 'results'}
+		<Results />
+	{:else if gameState == 'rotate-phone'}
+		<div
+			class="relative w-full h-full grid place-content-center text-white text-center text-xl px-4"
+		>
+			<h1 class="text-red-500">⚠️ WARNING! ⚠️</h1>
+			sticker wizard will cry if you don't rotate your device. please don't make him cry :(
+		</div>
 	{/if}
 
 	<Canvas>

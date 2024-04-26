@@ -29,8 +29,8 @@
 	}
 
 	let player: SvelteComponent;
-	export const playerGoToLadder = () => {
-		player.goToLadder();
+	export const playerGoToLadder = async () => {
+		await player.goToLadder();
 	};
 	export const playerFireMeteor = () => {
 		player.fireMeteor();
@@ -82,13 +82,13 @@
 </T.Sprite>
 
 <T.Sprite scale={3} position.x={0} position.z={-0.01} position.y={1.4}>
-	<T.PlaneGeometry args={[12, 4]} />
+	<T.PlaneGeometry args={[12, 5.5]} />
 	{#if $bgTexture}
 		<T.MeshBasicMaterial map={$bgTexture} />
 	{/if}
 </T.Sprite>
 
 <T.Mesh position={[0, -7, 0]}>
-	<T.PlaneGeometry args={[30, 5]} />
+	<T.PlaneGeometry args={[50, 5]} />
 	<T.MeshBasicMaterial color="black" />
 </T.Mesh>
