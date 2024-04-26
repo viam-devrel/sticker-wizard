@@ -1,12 +1,13 @@
 <script lang="ts">
+	import { createEventDispatcher, type SvelteComponent } from 'svelte';
 	import { T, useTask } from '@threlte/core';
 	import { useTexture } from '@threlte/extras';
+
 	import Player from './player.svelte';
 	import { PerspectiveCamera, Vector3 } from 'three';
 	import bgImage from '$lib/assets/background.png';
 	import ladderImage from '$lib/assets/ladder.png';
 	import Bucket from './bucket.svelte';
-	import { createEventDispatcher, type SvelteComponent } from 'svelte';
 
 	export let cameraPosition: Vector3;
 	export let onCameraPositionChange: () => void;
@@ -21,7 +22,6 @@
 	let camera: PerspectiveCamera;
 
 	let currentCameraPosition = cameraPosition;
-
 	$: {
 		if (currentCameraPosition.distanceTo(cameraPosition) == 0) {
 			onCameraPositionChange();
@@ -56,8 +56,6 @@
 		}
 	});
 </script>
-
-<T.PointLight position={[0, 0, 0]} color="white" distance={10} />
 
 <T.PerspectiveCamera
 	bind:ref={camera}

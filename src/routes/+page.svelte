@@ -63,7 +63,7 @@
 	});
 </script>
 
-<div class="relative w-screen h-screen lg:w-[568px] lg:h-[320px] bg-gray-800">
+<div class="relative w-dvh h-dvh lg:w-[568px] lg:h-[320px] bg-gray-800">
 	{#if gameState == 'title'}
 		<div class="absolute w-full h-full flex flex-col">
 			<img class="w-full pt-[128px] px-1" src={title} alt="sticker wizard" />
