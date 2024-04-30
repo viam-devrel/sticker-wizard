@@ -1,16 +1,17 @@
 interface Question {
 	question: string;
 	options: string[];
+	associatedBots: number[];
 }
 
 export class Quiz {
 	quiz: Question[];
-	results: (string | undefined)[];
+	results: number[];
 	questionIdx = 0;
 
 	constructor(quiz: Question[]) {
 		this.quiz = quiz;
-		this.results = new Array(this.quiz.length).map(() => undefined);
+		this.results = new Array(9).map(() => 0);
 	}
 
 	currentQuestion(): Question | undefined {
@@ -21,7 +22,7 @@ export class Quiz {
 	}
 
 	selectOption(optionIdx: number): void {
-		this.results[this.questionIdx] = this.quiz[this.questionIdx].options[optionIdx];
+		// this.results[this.questionIdx] = this.quiz[this.questionIdx].options[optionIdx];
 	}
 
 	nextQuestion() {

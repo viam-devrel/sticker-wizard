@@ -4,12 +4,14 @@
 		"options": [
 			"F12, I literally love meetings",
 			"63rd and Broadway. Don’t ask",
-			"W1, my sweet escape",
+			"Eliot's office. Don't tell.",
 			"The larger personal bathroom"
+		],
+		"associatedBots": [
+			[7],
+			[2, 3],
+			[5],
+			[4]
 		]
-	},
-	{
-		"question": "If you could have one Viam component as an extension of your body, what would it be?",
-		"options": ["Gantry", "Moisture sensor", "Gamepad", "Wheeled base"]
 	}
 ]
