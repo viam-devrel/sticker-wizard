@@ -82,9 +82,7 @@
 				scene.playerFireMeteor();
 				}}
 				on:complete={(event) => {
-				console.log('in page.svelte');
-				console.log(event.detail);
-				result = event.detail;
+				result = 'You are ' + event.detail + '!';
 
 				gameState = 'results';
 				}}

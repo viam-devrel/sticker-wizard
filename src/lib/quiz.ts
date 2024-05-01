@@ -9,9 +9,9 @@ export class Quiz {
 	results = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 	questionIdx = 0;
 	botNames = [
-		"Smart machine", "Philosopher bot", "Artsy bot",
-		"Ghost bot", "Spicy bot", "Party bot",
-		"Cozy bot", "Short-circuit bot", "Barbie bot",
+		"SMART MACHINE", "PHILOSOPHER BOT", "ARTSY BOT",
+		"GHOST BOT", "SPICY BOT", "PARTY BOT",
+		"COZY BOT", "SHORT-CIRCUIT BOT", "BARBIE BOT",
 	]
 
 	constructor(quiz: Question[]) {

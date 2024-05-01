@@ -21,7 +21,6 @@
 	$: {
 		// Reached the end of the quiz
 		if (!currentQuestion) {
-			console.log(quiz.getResults());
 			dispatch('complete', quiz.getResults());
 		}
 	}
