@@ -77,7 +77,7 @@
 
 	<!-- Quiz question -->
 	<div
-		bind:this={questionTextElement}
-		class="bg-white h-[64px] bottom-0 p-3 leading-none border-4 border-gray-500"
-	></div>
+			bind:this={questionTextElement}
+			class="bg-white h-[64px] bottom-0 p-3 leading-none border-4 border-gray-500"
+			></div>
 </div>
