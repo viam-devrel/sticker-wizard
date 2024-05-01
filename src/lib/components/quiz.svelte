@@ -7,20 +7,21 @@
 	import { createEventDispatcher } from 'svelte';
 	import { wait } from '$lib/utils';
 
+
 	const dispatch = createEventDispatcher<{
 		select: void;
-		complete: void;
+		complete: string;
 	}>();
 
 	const quiz = new Quiz(quizJSON);
+
 	let selectedOptionIdx = 0;
 	let currentQuestion = quiz.currentQuestion();
 
 	$: {
 		// Reached the end of the quiz
 		if (!currentQuestion) {
-			console.log(quiz.getResults());
-			dispatch('complete');
+			dispatch('complete', quiz.getResults());
 		}
 	}
 
@@ -77,7 +78,7 @@
 
 	<!-- Quiz question -->
 	<div
-		bind:this={questionTextElement}
-		class="bg-white h-[64px] bottom-0 p-3 leading-none border-4 border-gray-500"
-	></div>
+			bind:this={questionTextElement}
+			class="bg-white h-[64px] bottom-0 p-3 leading-none border-4 border-gray-500"
+			></div>
 </div>

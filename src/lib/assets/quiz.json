@@ -1,15 +1,144 @@
 [
 	{
+		"question": "How are you feeling today?",
+		"options": [
+			"Good! Ready to take on the day!",
+			"Yawn….sorry what’d you say?",
+			"No time for that",
+			"None of the above. I contain multitudes"
+		],
+		"associatedBots": [
+			[9],
+			[4],
+			[1],
+			[2]
+		]
+	},
+	{
 		"question": "What's your favorite corner of the office?",
 		"options": [
 			"F12, I literally love meetings",
 			"63rd and Broadway. Don’t ask",
-			"W1, my sweet escape",
+			"Eliot's office. Don't tell.",
 			"The larger personal bathroom"
+		],
+		"associatedBots": [
+			[7],
+			[2, 3],
+			[5],
+			[4]
 		]
 	},
 	{
-		"question": "If you could have one Viam component as an extension of your body, what would it be?",
-		"options": ["Gantry", "Moisture sensor", "Gamepad", "Wheeled base"]
+		"question": "If you could grant a robot any ability, what would you choose?",
+		"options": [
+			"Order my lunch every morning",
+			"Follow me around like an imprinted duckling",
+			"Emotions."
+		],
+		"associatedBots": [
+			[1],
+			[7],
+			[2]
+		]
+	},
+	{
+		"question": "Which of the following fictional technologies do you hope is finally made possible by Viam?",
+		"options": [
+			"Flying cars",
+			"Star Trek Transportation Beam",
+			"Transformers",
+			"Willy Wonka’s sky elevator"
+		],
+		"associatedBots": [
+			[9],
+			[8],
+			[6],
+			[7]
+		]
+	},
+	{
+		"question": "My wizard amulet would be made of…",
+		"options": [
+			"Cardboard",
+			"Glass",
+			"PLA filament"
+		],
+		"associatedBots": [
+			[8],
+			[4],
+			[5]
+		]
+	},
+	{
+		"question": "They probably know me personally at…",
+		"options": [
+			"JustSalad – trying to stay healthy!",
+			"Fuji Sushi – maximize your budget. $20 before tax",
+			"Thai Chella – spicy, aaaah!!!",
+			"Planet Taco – I get lunch AND dinner"
+		],
+		"associatedBots": [
+			[9],
+			[6],
+			[5],
+			[1]
+		]
+	},
+	{
+		"question": "The wizard is conjuring a generative stew. Quick, grab something from the kitchen to add!",
+		"options": [
+			"Miniature beef jerky",
+			"Key Lime La Croix",
+			"Advil",
+			"The dishwasher drill bit"
+		],
+		"associatedBots": [
+			[6],
+			[3],
+			[2],
+			[8]
+		]
+	},
+	{
+		"question":"If you could have one Viam component as an extension of your body, what would it be?",
+		"options": [
+			"Gantry",
+			"Moisture sensor",
+			"RGB display",
+			"Wheeled base"
+		],
+		"associatedBots": [
+			[1],
+			[7],
+			[3],
+			[6]
+		]
+	},
+	{
+		"question": "If you could be half of a robot-human crime-fighting duo, which one would you be? (Answer truthfully)",
+		"options": [
+			"Robot",
+			"Human"
+		],
+		"associatedBots": [
+			[1, 2, 4, 5, 9],
+			[3, 6, 7, 8]
+		]
+	},
+	{
+		"question": "Recaptcha - which direction is the goat facing?",
+		"options": [
+			"North",
+			"South",
+			"East",
+			"West"
+		],
+		"associatedBots": [
+			[9],
+			[8],
+			[3],
+			[4]
+		]
 	}
 ]

@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { type } from '$lib/typing';
 
-	const text = 'you are BARBIE bot!';
+	export let result;
+
 	let textElement: HTMLElement;
 	$: {
 		if (textElement) {
 			type(textElement, 'bubbling...', 200).then(() => {
-				type(textElement, text, 100);
+				type(textElement, result, 100);
 			});
 		}
 	}
