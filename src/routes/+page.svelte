@@ -46,6 +46,8 @@
 		}
 	};
 
+	let result = undefined;
+
 	onMount(() => {
 		if (screen.orientation.type.includes('portrait')) {
 			prevGameState = gameState;
@@ -75,36 +77,41 @@
 		</div>
 	{:else if gameState == 'quiz'}
 		<Quiz
-			on:select={() => {
+
+				on:select={() => {
 				scene.playerFireMeteor();
-			}}
-			on:complete={() => {
+				}}
+				on:complete={(event) => {
+				console.log('in page.svelte');
+				console.log(event.detail);
+				result = event.detail;
+
 				gameState = 'results';
-			}}
-		/>
+				}}
+				/>
 	{:else if gameState == 'results'}
-		<Results />
+		<Results {result} />
 	{:else if gameState == 'rotate-phone'}
 		<div
-			class="relative w-full h-full grid place-content-center text-white text-center text-xl px-4"
-		>
-			<h1 class="text-red-500">⚠️ WARNING! ⚠️</h1>
-			sticker wizard will cry if you don't rotate your device. please don't make him cry :(
+				class="relative w-full h-full grid place-content-center text-white text-center text-xl px-4"
+				>
+				<h1 class="text-red-500">⚠️ WARNING! ⚠️</h1>
+				sticker wizard will cry if you don't rotate your device. please don't make him cry :(
 		</div>
 	{/if}
 
 	<Canvas>
 		<Scene
-			bind:this={scene}
-			{cameraPosition}
-			onCameraPositionChange={() => {
+				bind:this={scene}
+				{cameraPosition}
+				onCameraPositionChange={() => {
 				if (gameState === 'quiz') {
-					setTimeout(() => {
-						gameState = 'quiz';
-					}, 100);
+				setTimeout(() => {
+				gameState = 'quiz';
+				}, 100);
 				}
-			}}
-			on:playerChange={handlePlayerPositionChange}
-		/>
+				}}
+				on:playerChange={handlePlayerPositionChange}
+				/>
 	</Canvas>
 </div>
