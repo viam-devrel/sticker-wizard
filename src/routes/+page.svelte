@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Canvas, T } from '@threlte/core';
+	import { Canvas } from '@threlte/core';
 	import Scene from './scene.svelte';
 	import { onMount, type SvelteComponent } from 'svelte';
 
@@ -8,6 +8,7 @@
 	import Quiz from '$lib/components/quiz.svelte';
 	import title from '$lib/assets/title.png';
 	import Results from './results.svelte';
+	import { type Bot } from '$lib/quiz';
 
 	type State = 'rotate-phone' | 'title' | 'pre-quiz' | 'quiz' | 'results';
 
@@ -46,7 +47,12 @@
 		}
 	};
 
-	let result = undefined;
+	let result: Bot | undefined = undefined;
+
+	const handleOnRestart = () => {
+		gameState = 'quiz';
+		result = undefined;
+	};
 
 	onMount(() => {
 		if (screen.orientation.type.includes('portrait')) {
@@ -77,39 +83,37 @@
 		</div>
 	{:else if gameState == 'quiz'}
 		<Quiz
-
-				on:select={() => {
+			on:select={() => {
 				scene.playerFireMeteor();
-				}}
-				on:complete={(event) => {
-				result = 'You are ' + event.detail + '!';
-
+			}}
+			on:complete={(event) => {
+				result = event.detail;
 				gameState = 'results';
-				}}
-				/>
+			}}
+		/>
 	{:else if gameState == 'results'}
-		<Results {result} />
+		<Results {result} onRestart={handleOnRestart} />
 	{:else if gameState == 'rotate-phone'}
 		<div
-				class="relative w-full h-full grid place-content-center text-white text-center text-xl px-4"
-				>
-				<h1 class="text-red-500">⚠️ WARNING! ⚠️</h1>
-				sticker wizard will cry if you don't rotate your device. please don't make him cry :(
+			class="relative w-full h-full grid place-content-center text-white text-center text-xl px-4"
+		>
+			<h1 class="text-red-500">⚠️ WARNING! ⚠️</h1>
+			sticker wizard will cry if you don't rotate your device. please don't make him cry :(
 		</div>
 	{/if}
 
 	<Canvas>
 		<Scene
-				bind:this={scene}
-				{cameraPosition}
-				onCameraPositionChange={() => {
+			bind:this={scene}
+			{cameraPosition}
+			onCameraPositionChange={() => {
 				if (gameState === 'quiz') {
-				setTimeout(() => {
-				gameState = 'quiz';
-				}, 100);
+					setTimeout(() => {
+						gameState = 'quiz';
+					}, 100);
 				}
-				}}
-				on:playerChange={handlePlayerPositionChange}
-				/>
+			}}
+			on:playerChange={handlePlayerPositionChange}
+		/>
 	</Canvas>
 </div>

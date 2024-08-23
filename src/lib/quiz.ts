@@ -1,32 +1,43 @@
+interface QuizData {
+	questions: Question[];
+	bots: Bot[];
+}
+
 interface Question {
 	question: string;
 	options: string[];
 	associatedBots: number[][];
 }
 
+export interface Bot {
+	name: string;
+	emojis: string;
+	description: string;
+	superpower: string;
+	fatalFlaw: string;
+}
+
 export class Quiz {
-	quiz: Question[];
+	questions: Question[];
+	bots: Bot[];
+
 	results = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 	questionIdx = 0;
-	botNames = [
-		"SMART MACHINE", "PHILOSOPHER BOT", "ARTSY BOT",
-		"GHOST BOT", "SPICY BOT", "PARTY BOT",
-		"COZY BOT", "SHORT-CIRCUIT BOT", "BARBIE BOT",
-	]
 
-	constructor(quiz: Question[]) {
-		this.quiz = quiz;
+	constructor(quiz: QuizData) {
+		this.questions = quiz.questions;
+		this.bots = quiz.bots;
 	}
 
 	currentQuestion(): Question | undefined {
-		if (this.questionIdx >= this.quiz.length) {
+		if (this.questionIdx >= this.questions.length) {
 			return undefined;
 		}
-		return this.quiz[this.questionIdx];
+		return this.questions[this.questionIdx];
 	}
 
 	selectOption(optionIdx: number): void {
-		var botsForSelectedOption = this.quiz[this.questionIdx].associatedBots[optionIdx];
+		const botsForSelectedOption = this.questions[this.questionIdx].associatedBots[optionIdx];
 		for (let i = 0; i < botsForSelectedOption.length; i++) {
 			this.results[botsForSelectedOption[i] - 1]++;
 		}
@@ -38,14 +49,14 @@ export class Quiz {
 	}
 
 	get length() {
-		return this.quiz.length;
+		return this.questions.length;
 	}
 
-	getResults(): string {
-		console.log("results");
+	getResults(): Bot {
+		console.log('results');
 		console.log(this.results);
-		var maxBotIdx = findIndexOfMaxNumber(this.results);
-		return this.botNames[maxBotIdx];
+		const maxBotIdx = findIndexOfMaxNumber(this.results);
+		return this.bots[maxBotIdx];
 	}
 }
 
@@ -62,4 +73,3 @@ function findIndexOfMaxNumber(numbers: number[]): number {
 
 	return maxIndex;
 }
-

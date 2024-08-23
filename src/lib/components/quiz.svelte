@@ -5,12 +5,11 @@
 	import quizJSON from '$lib/assets/quiz.json';
 	import { Quiz, type } from '$lib';
 	import { createEventDispatcher } from 'svelte';
-	import { wait } from '$lib/utils';
-
+	import { type Bot } from '$lib/quiz';
 
 	const dispatch = createEventDispatcher<{
 		select: void;
-		complete: string;
+		complete: Bot;
 	}>();
 
 	const quiz = new Quiz(quizJSON);
@@ -35,10 +34,15 @@
 		selectedOptionIdx = Math.max(0, selectedOptionIdx - 1);
 	};
 
+	const handleChooseSelectedOption = (idx: number) => {
+		selectedOptionIdx = idx;
+	};
+
 	const handleSelectOption = () => {
 		quiz.selectOption(selectedOptionIdx);
 		currentQuestion = quiz.nextQuestion();
 		dispatch('select');
+		selectedOptionIdx = 0;
 	};
 
 	let isTypingComplete = false;
@@ -54,7 +58,11 @@
 </script>
 
 {#if isTypingComplete}
-	<OptionsContainer options={currentQuestion?.options ?? []} selectedOption={selectedOptionIdx} />
+	<OptionsContainer
+		options={currentQuestion?.options ?? []}
+		selectedOption={selectedOptionIdx}
+		selectOption={handleChooseSelectedOption}
+	/>
 {/if}
 
 <div class="absolute w-[calc(100%-2rem)] m-4 bottom-0">
@@ -78,7 +86,7 @@
 
 	<!-- Quiz question -->
 	<div
-			bind:this={questionTextElement}
-			class="bg-white h-[64px] bottom-0 p-3 leading-none border-4 border-gray-500"
-			></div>
+		bind:this={questionTextElement}
+		class="bg-white h-[64px] bottom-0 p-3 leading-none border-4 border-gray-500"
+	></div>
 </div>

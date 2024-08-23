@@ -1,144 +1,146 @@
-[
-	{
-		"question": "How are you feeling today?",
-		"options": [
-			"Good! Ready to take on the day!",
-			"Yawn….sorry what’d you say?",
-			"No time for that",
-			"None of the above. I contain multitudes"
-		],
-		"associatedBots": [
-			[9],
-			[4],
-			[1],
-			[2]
-		]
-	},
-	{
-		"question": "What's your favorite corner of the office?",
-		"options": [
-			"F12, I literally love meetings",
-			"63rd and Broadway. Don’t ask",
-			"Eliot's office. Don't tell.",
-			"The larger personal bathroom"
-		],
-		"associatedBots": [
-			[7],
-			[2, 3],
-			[5],
-			[4]
-		]
-	},
-	{
-		"question": "If you could grant a robot any ability, what would you choose?",
-		"options": [
-			"Order my lunch every morning",
-			"Follow me around like an imprinted duckling",
-			"Emotions."
-		],
-		"associatedBots": [
-			[1],
-			[7],
-			[2]
-		]
-	},
-	{
-		"question": "Which of the following fictional technologies do you hope is finally made possible by Viam?",
-		"options": [
-			"Flying cars",
-			"Star Trek Transportation Beam",
-			"Transformers",
-			"Willy Wonka’s sky elevator"
-		],
-		"associatedBots": [
-			[9],
-			[8],
-			[6],
-			[7]
-		]
-	},
-	{
-		"question": "My wizard amulet would be made of…",
-		"options": [
-			"Cardboard",
-			"Glass",
-			"PLA filament"
-		],
-		"associatedBots": [
-			[8],
-			[4],
-			[5]
-		]
-	},
-	{
-		"question": "They probably know me personally at…",
-		"options": [
-			"JustSalad – trying to stay healthy!",
-			"Fuji Sushi – maximize your budget. $20 before tax",
-			"Thai Chella – spicy, aaaah!!!",
-			"Planet Taco – I get lunch AND dinner"
-		],
-		"associatedBots": [
-			[9],
-			[6],
-			[5],
-			[1]
-		]
-	},
-	{
-		"question": "The wizard is conjuring a generative stew. Quick, grab something from the kitchen to add!",
-		"options": [
-			"Miniature beef jerky",
-			"Key Lime La Croix",
-			"Advil",
-			"The dishwasher drill bit"
-		],
-		"associatedBots": [
-			[6],
-			[3],
-			[2],
-			[8]
-		]
-	},
-	{
-		"question":"If you could have one Viam component as an extension of your body, what would it be?",
-		"options": [
-			"Gantry",
-			"Moisture sensor",
-			"RGB display",
-			"Wheeled base"
-		],
-		"associatedBots": [
-			[1],
-			[7],
-			[3],
-			[6]
-		]
-	},
-	{
-		"question": "If you could be half of a robot-human crime-fighting duo, which one would you be? (Answer truthfully)",
-		"options": [
-			"Robot",
-			"Human"
-		],
-		"associatedBots": [
-			[1, 2, 4, 5, 9],
-			[3, 6, 7, 8]
-		]
-	},
-	{
-		"question": "Recaptcha - which direction is the goat facing?",
-		"options": [
-			"North",
-			"South",
-			"East",
-			"West"
-		],
-		"associatedBots": [
-			[9],
-			[8],
-			[3],
-			[4]
-		]
-	}
-]
+{
+	"bots": [
+		{
+			"name": "SMART MACHINE",
+			"emojis": "🧠🤓📚",
+			"description": "When Viam shifted from a robotics company to a smart machine company, you’d never felt more seen. AI’s all the rage, but it’s no threat to you. You can’t resist a good puzzle, and your brain seems to be an endless repository of random facts. When you’re not helping someone out with tasks beyond your own, you’re busy scrolling Slack looking for places to leave puns.",
+			"superpower": "Photographic memory",
+			"fatalFlaw": "Leaving too many nits on PRs"
+		},
+		{
+			"name": "PHILOSOPHER BOT",
+			"emojis": "🪨❓💭",
+			"description": "What exactly is a robot? Does free will exist? Is a bump sensor a camera? These are the questions that keep you up at night. You’re constantly asking “why,” coming up with new theories about the things around you, and resisting the urge to say “ontology” over lunch. You love nothing more than a good conversation, except maybe an accurate alignment chart.",
+			"superpower": "Naming variables",
+			"fatalFlaw": "Asking “is a hot dog a sandwich?” too many times"
+		},
+		{
+			"name": "ARTSY BOT",
+			"emojis": "🎨🖍️🌀",
+			"description": "You’re charming, open-minded, and . You’ve made multi-course meals with snacks and ingredients from the kitchen. You are an innovator, you’re constantly pushing things to the edge. You enjoy being slightly intimidating, and you are secretly pleased when people respond “I’ve never heard of that.”",
+			"superpower": "The divine act of creation",
+			"fatalFlaw": "Your room is always a mess"
+		},
+		{
+			"name": "GHOST BOT",
+			"emojis": "",
+			"description": "",
+			"superpower": "",
+			"fatalFlaw": ""
+		},
+		{
+			"name": "SPICY BOT",
+			"emojis": "",
+			"description": "",
+			"superpower": "",
+			"fatalFlaw": ""
+		},
+		{
+			"name": "PARTY BOT",
+			"emojis": "",
+			"description": "",
+			"superpower": "",
+			"fatalFlaw": ""
+		},
+		{
+			"name": "COZY BOT",
+			"emojis": "",
+			"description": "",
+			"superpower": "",
+			"fatalFlaw": ""
+		},
+		{
+			"name": "SHORT-CIRCUIT BOT",
+			"emojis": "⚡🔌💧",
+			"description": "Let’s be honest, you’re not always doing your best work. But when you are, you’re electric! Your comments often catch everyone by surprise. When the inspiration hits, it’s impossible to stop the flow. You’re undoubtedly iconic. There would be no #thrid-floor-chaos without you!",
+			"superpower": "Dankest memes",
+			"fatalFlaw": "Caused the fire in the building"
+		},
+		{
+			"name": "BARBIE BOT",
+			"emojis": "🎀💅💖",
+			"description": "You genuinely love life, and your enthusiasm is contagious. You feel alive in the spotlight, and you’re (not so secretly) dying to be featured on a Viam “day in the life” vlog. Every outfit of yours is a hit, so obviously you drop a mirror selfie into #ootds on the daily. You know girlboss is supposed to be ironic these days, but you’re not sure why and you’re too afraid to ask.",
+			"superpower": "Never has a bad hair day",
+			"fatalFlaw": "Spreads microplastics"
+		}
+	],
+	"questions": [
+		{
+			"question": "How are you feeling today?",
+			"options": [
+				"Good! Ready to take on the day!",
+				"Yawn….sorry what’d you say?",
+				"No time for that",
+				"None of the above. I contain multitudes"
+			],
+			"associatedBots": [[9], [4], [1], [2]]
+		},
+		{
+			"question": "What's your favorite corner of the office?",
+			"options": [
+				"F12, I literally love meetings",
+				"63rd and Broadway. Don’t ask",
+				"Eliot's office. Don't tell.",
+				"The larger personal bathroom"
+			],
+			"associatedBots": [[7], [2, 3], [5], [4]]
+		},
+		{
+			"question": "If you could grant a robot any ability, what would you choose?",
+			"options": [
+				"Order my lunch every morning",
+				"Follow me around like an imprinted duckling",
+				"Emotions."
+			],
+			"associatedBots": [[1], [7], [2]]
+		},
+		{
+			"question": "Which of the following fictional technologies do you hope is finally made possible by Viam?",
+			"options": [
+				"Flying cars",
+				"Star Trek Transportation Beam",
+				"Transformers",
+				"Willy Wonka’s sky elevator"
+			],
+			"associatedBots": [[9], [8], [6], [7]]
+		},
+		{
+			"question": "My wizard amulet would be made of…",
+			"options": ["Cardboard", "Glass", "PLA filament"],
+			"associatedBots": [[8], [4], [5]]
+		},
+		{
+			"question": "They probably know me personally at…",
+			"options": [
+				"JustSalad – trying to stay healthy!",
+				"Fuji Sushi – maximize your budget. $20 before tax",
+				"Thai Chella – spicy, aaaah!!!",
+				"Planet Taco – I get lunch AND dinner"
+			],
+			"associatedBots": [[9], [6], [5], [1]]
+		},
+		{
+			"question": "The wizard is conjuring a generative stew. Quick, grab something from the kitchen to add!",
+			"options": ["Miniature beef jerky", "Key Lime La Croix", "Advil", "The dishwasher drill bit"],
+			"associatedBots": [[6], [3], [2], [8]]
+		},
+		{
+			"question": "If you could have one Viam component as an extension of your body, what would it be?",
+			"options": ["Gantry", "Moisture sensor", "RGB display", "Wheeled base"],
+			"associatedBots": [[1], [7], [3], [6]]
+		},
+		{
+			"question": "If you could be half of a robot-human crime-fighting duo, which one would you be? (Answer truthfully)",
+			"options": ["Robot", "Human"],
+			"associatedBots": [
+				[1, 2, 4, 5, 9],
+				[3, 6, 7, 8]
+			]
+		},
+		{
+			"question": "Recaptcha - which direction is the goat facing?",
+			"options": ["North", "South", "East", "West"],
+			"associatedBots": [[9], [8], [3], [4]]
+		}
+	]
+}

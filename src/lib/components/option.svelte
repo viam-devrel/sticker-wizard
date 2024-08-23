@@ -4,9 +4,13 @@
 
 	export let text: string;
 	export let isSelected: boolean;
+	export let selectOption: () => void;
 </script>
 
-<div class={cx('flex gap-2 leading-none px-2', { 'bg-white/[.33]': isSelected })}>
+<button
+	class={cx('flex gap-2 leading-none px-2 text-left', { 'bg-white/[.33]': isSelected })}
+	on:click={selectOption}
+>
 	<img src={LED} alt="led bullet" class="size-fit pt-[3.5px]" />
 	{text}
-</div>
+</button>
