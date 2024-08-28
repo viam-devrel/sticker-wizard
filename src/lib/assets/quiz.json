@@ -136,11 +136,6 @@
 				[1, 2, 4, 5, 9],
 				[3, 6, 7, 8]
 			]
-		},
-		{
-			"question": "Recaptcha - which direction is the goat facing?",
-			"options": ["North", "South", "East", "West"],
-			"associatedBots": [[9], [8], [3], [4]]
 		}
 	]
 }

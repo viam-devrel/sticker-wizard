@@ -5,10 +5,11 @@
 
 	import '../app.css';
 	import { Vector3 } from 'three';
-	import Quiz from '$lib/components/quiz.svelte';
+	import QuizComponent from '$lib/components/quiz.svelte';
 	import title from '$lib/assets/title.png';
 	import Results from './results.svelte';
-	import { type Bot } from '$lib/quiz';
+	import { Quiz, type Bot } from '$lib/quiz';
+	import quizJSON from '$lib/assets/quiz.json';
 
 	type State = 'rotate-phone' | 'title' | 'pre-quiz' | 'quiz' | 'results';
 
@@ -20,6 +21,8 @@
 	let cameraPosition: Vector3 = TITLE_CAMERA_POS;
 
 	let scene: SvelteComponent;
+
+	const quiz = new Quiz(quizJSON);
 
 	$: {
 		switch (gameState) {
@@ -82,7 +85,8 @@
 			</div>
 		</div>
 	{:else if gameState == 'quiz'}
-		<Quiz
+		<QuizComponent
+			{quiz}
 			on:select={() => {
 				scene.playerFireMeteor();
 			}}
@@ -92,7 +96,7 @@
 			}}
 		/>
 	{:else if gameState == 'results'}
-		<Results {result} onRestart={handleOnRestart} />
+		<Results bot={result} botIndex={quiz.getBotIndex(result?.name)} onRestart={handleOnRestart} />
 	{:else if gameState == 'rotate-phone'}
 		<div
 			class="relative w-full h-full grid place-content-center text-white text-center text-xl px-4"

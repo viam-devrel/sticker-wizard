@@ -2,17 +2,16 @@
 	import Arrow from '$lib/assets/arrow.png';
 	import SelectButtonBkgd from '$lib/assets/select-button.png';
 	import OptionsContainer from '$lib/components/options-container.svelte';
-	import quizJSON from '$lib/assets/quiz.json';
 	import { Quiz, type } from '$lib';
 	import { createEventDispatcher } from 'svelte';
 	import { type Bot } from '$lib/quiz';
+
+	export let quiz: Quiz;
 
 	const dispatch = createEventDispatcher<{
 		select: void;
 		complete: Bot;
 	}>();
-
-	const quiz = new Quiz(quizJSON);
 
 	let selectedOptionIdx = 0;
 	let currentQuestion = quiz.currentQuestion();

@@ -58,6 +58,10 @@ export class Quiz {
 		const maxBotIdx = findIndexOfMaxNumber(this.results);
 		return this.bots[maxBotIdx];
 	}
+
+	getBotIndex(botName: string | undefined): number {
+		return this.bots.findIndex((bot) => bot.name === botName);
+	}
 }
 
 function findIndexOfMaxNumber(numbers: number[]): number {

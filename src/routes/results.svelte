@@ -1,9 +1,12 @@
 <script lang="ts">
+	import { createMachine } from '$lib/machine';
 	import { type Bot } from '$lib/quiz';
 	import { type } from '$lib/typing';
 	import cx from 'classnames';
+	import { onMount } from 'svelte';
 
-	export let result: Bot | undefined;
+	export let bot: Bot | undefined;
+	export let botIndex: number;
 	export let onRestart: () => void;
 
 	let showBackground = false;
@@ -14,20 +17,25 @@
 	let superpowerElement: HTMLElement;
 	let fatalFlawElement: HTMLElement;
 	$: {
-		if (result !== undefined) {
+		if (bot !== undefined) {
 			if (botNameElement) {
 				type(botNameElement, 'bubbling...', 200).then(() => {
-					type(botNameElement, result.name, 100).then(() => {
-						emojiElement.textContent = result.emojis;
-						botDescriptionElement.textContent = result.description;
-						superpowerElement.textContent = `Superpower: ${result.superpower}`;
-						fatalFlawElement.textContent = `Fatal flow: ${result.fatalFlaw}`;
+					type(botNameElement, bot.name, 100).then(() => {
+						emojiElement.textContent = bot.emojis;
+						botDescriptionElement.textContent = bot.description;
+						superpowerElement.textContent = `Superpower: ${bot.superpower}`;
+						fatalFlawElement.textContent = `Fatal flow: ${bot.fatalFlaw}`;
 						showBackground = true;
 					});
 				});
 			}
 		}
 	}
+
+	onMount(async () => {
+		const { dispenseSticker } = await createMachine();
+		dispenseSticker(botIndex);
+	});
 </script>
 
 <div class="absolute w-full h-full grid place-content-center">
