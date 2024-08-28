@@ -17,37 +17,37 @@
 		{
 			"name": "ARTSY BOT",
 			"emojis": "🎨🖍️🌀",
-			"description": "You’re charming, open-minded, and . You’ve made multi-course meals with snacks and ingredients from the kitchen. You are an innovator, you’re constantly pushing things to the edge. You enjoy being slightly intimidating, and you are secretly pleased when people respond “I’ve never heard of that.”",
+			"description": "You’re charming, open-minded, and full of spunk. You’ve made multi-course meals with snacks and ingredients from the kitchen. You are an innovator, you’re constantly pushing things to the edge. You enjoy being slightly intimidating, and you are secretly pleased when people respond “I’ve never heard of that.”",
 			"superpower": "The divine act of creation",
 			"fatalFlaw": "Your room is always a mess"
 		},
 		{
 			"name": "GHOST BOT",
-			"emojis": "",
-			"description": "",
-			"superpower": "",
-			"fatalFlaw": ""
+			"emojis": "👻💨💀",
+			"description": "You’re a lurker. You’re in the office every day but you seem to disappear once you walk out of the elevators. Even so, you’re the most productive member of your team – you somehow get everything done without any struggle. You don’t talk much, but you’re on top of all the office gossip.",
+			"superpower": "Best halloween costume",
+			"fatalFlaw": "The reason why the office is so cold"
 		},
 		{
 			"name": "SPICY BOT",
-			"emojis": "",
-			"description": "",
-			"superpower": "",
-			"fatalFlaw": ""
+			"emojis": "🌶️💦🥵",
+			"description": "What would lunchtime be without you? With you around, there’s never an awkward silence. You love nothing more than a good debate – you even have a list of “hot takes” in your notes app. Your life is never boring. You’re always down to do it for the plot. And boy, that plot sure is thickening every day.",
+			"superpower": "Finished the spicy hot chicken sandwich challenge",
+			"fatalFlaw": "Finished the spicy hot chicken sandwich challenge"
 		},
 		{
 			"name": "PARTY BOT",
-			"emojis": "",
-			"description": "",
-			"superpower": "",
-			"fatalFlaw": ""
+			"emojis": "🍹🪩🎉",
+			"description": "The party don’t start ‘til you walk in… You’ve got the best playlist, the best energy, and of course – the best moves. You’re constantly hosting, and you love nothing more than a good theme. You wouldn’t be super useful on a stranded island, but everybody would want you there anyway. Karaoke anyone?",
+			"superpower": "Friends with everybody",
+			"fatalFlaw": "Throwing up at happy hour"
 		},
 		{
 			"name": "COZY BOT",
-			"emojis": "",
-			"description": "",
-			"superpower": "",
-			"fatalFlaw": ""
+			"emojis": "🛋️🪴🫖",
+			"description": "You are the physical embodiment of a cup of hot cocoa. Always at ease, you are the calm center of the office. You’re a mom friend, you’re always taking care of the people around you. You sign off emails with “warmly,” and you always seem to have a smile on your face. You have plants at your desk and they’re all thriving – no plant-watering robot needed.",
+			"superpower": "Best hugger",
+			"fatalFlaw": "Probably falling asleep"
 		},
 		{
 			"name": "SHORT-CIRCUIT BOT",
@@ -106,8 +106,8 @@
 		},
 		{
 			"question": "My wizard amulet would be made of…",
-			"options": ["Cardboard", "Glass", "PLA filament"],
-			"associatedBots": [[8], [4], [5]]
+			"options": ["Metal", "Cardboard", "Glass", "PLA filament"],
+			"associatedBots": [[8], [2], [4], [5]]
 		},
 		{
 			"question": "They probably know me personally at…",
