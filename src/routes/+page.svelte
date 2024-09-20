@@ -36,6 +36,7 @@
 	const handleOnStart = async () => {
 		gameState = 'pre-quiz';
 		await scene.playerGoToLadder();
+
 		gameState = 'quiz';
 	};
 

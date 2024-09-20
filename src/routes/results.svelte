@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createMachine } from '$lib/machine';
+	import { createMachine, type Machine } from '$lib/machine';
 	import { type Bot } from '$lib/quiz';
 	import { type } from '$lib/typing';
 	import cx from 'classnames';
@@ -26,20 +26,30 @@
 						superpowerElement.textContent = `Superpower: ${bot.superpower}`;
 						fatalFlawElement.textContent = `Fatal flow: ${bot.fatalFlaw}`;
 						showBackground = true;
+						showDispenseStickerButton = true;
 					});
 				});
 			}
 		}
 	}
 
+	let machine: Machine | undefined;
+
+	let showDispenseStickerButton = false;
+	const handleDispenseSticker = async () => {
+		showDispenseStickerButton = false;
+		machine?.dispenseSticker(botIndex);
+	};
+
 	onMount(async () => {
-		const { dispenseSticker } = await createMachine();
-		dispenseSticker(botIndex);
+		machine = await createMachine();
 	});
 </script>
 
 <div class="absolute w-full h-full grid place-content-center">
-	<div class="text-white text-center h-[70dvh] w-[80dvw] flex flex-col gap-2 justify-center">
+	<div
+		class="text-white text-center h-[70dvh] w-[80dvw] flex flex-col gap-2 justify-center items-center"
+	>
 		<div class="flex flex-col">
 			<!-- svelte-ignore a11y-missing-content -->
 			<h1 bind:this={botNameElement}></h1>
@@ -56,6 +66,16 @@
 		</div>
 	</div>
 </div>
+{#if showDispenseStickerButton}
+	<div class="absolute bottom-4 w-full flex flex-row justify-center">
+		<button
+			class="border-2 border-orange-500 p-1 w-fit text-white text-xs"
+			on:click={handleDispenseSticker}
+		>
+			give me my sticker!
+		</button>
+	</div>
+{/if}
 <button
 	class="absolute border-2 border-white p-1 w-fit text-white text-xs right-4 bottom-4"
 	on:click={onRestart}>restart</button
