@@ -4,9 +4,9 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"run": "vite dev --port 8090 --host",
+		"network-dev": "vite dev --port 8090 --host",
 		"build": "vite build",
-		"preview": "vite preview",
+		"network-preview": "vite preview --port 8090 --host",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
