@@ -37,7 +37,7 @@
 
 	let showDispenseStickerButton = false;
 	const handleDispenseSticker = async () => {
-		// showDispenseStickerButton = false;
+		showDispenseStickerButton = false;
 		machine?.dispenseSticker(botIndex);
 	};
 
