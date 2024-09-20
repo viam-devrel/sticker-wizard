@@ -54,8 +54,9 @@
 	let result: Bot | undefined = undefined;
 
 	const handleOnRestart = () => {
-		gameState = 'quiz';
+		quiz.restart();
 		result = undefined;
+		gameState = 'quiz';
 	};
 
 	onMount(() => {

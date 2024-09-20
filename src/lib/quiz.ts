@@ -53,14 +53,17 @@ export class Quiz {
 	}
 
 	getResults(): Bot {
-		console.log('results');
-		console.log(this.results);
 		const maxBotIdx = findIndexOfMaxNumber(this.results);
 		return this.bots[maxBotIdx];
 	}
 
 	getBotIndex(botName: string | undefined): number {
 		return this.bots.findIndex((bot) => bot.name === botName);
+	}
+
+	restart() {
+		this.questionIdx = 0;
+		this.results = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 	}
 }
 
