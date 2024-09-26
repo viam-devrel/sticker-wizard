@@ -64,18 +64,19 @@
 			<p bind:this={superpowerElement}></p>
 			<p bind:this={fatalFlawElement}></p>
 		</div>
+
+		{#if showDispenseStickerButton}
+			<div class="mt-6 w-full flex flex-row justify-center">
+				<button
+					class="border-2 border-orange-500 p-1 w-fit text-white text-xs"
+					on:click={handleDispenseSticker}
+				>
+					give me my sticker!
+				</button>
+			</div>
+		{/if}
 	</div>
 </div>
-{#if showDispenseStickerButton}
-	<div class="absolute bottom-4 w-full flex flex-row justify-center">
-		<button
-			class="border-2 border-orange-500 p-1 w-fit text-white text-xs"
-			on:click={handleDispenseSticker}
-		>
-			give me my sticker!
-		</button>
-	</div>
-{/if}
 <button
 	class="absolute border-2 border-white p-1 w-fit text-white text-xs right-4 bottom-4"
 	on:click={onRestart}>restart</button

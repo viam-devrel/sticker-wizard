@@ -6,7 +6,7 @@
 	import '../app.css';
 	import { Vector3 } from 'three';
 	import QuizComponent from '$lib/components/quiz.svelte';
-	import title from '$lib/assets/title.png';
+	import titleSVG from '$lib/assets/title.svg';
 	import Results from './results.svelte';
 	import { Quiz, type Bot } from '$lib/quiz';
 	import quizJSON from '$lib/assets/quiz.json';
@@ -78,12 +78,15 @@
 
 <div class="relative w-dvh h-dvh lg:w-[568px] lg:h-[320px] bg-gray-800">
 	{#if gameState == 'title'}
-		<div class="absolute w-full h-full flex flex-col">
-			<img class="w-full pt-[128px] px-1" src={title} alt="sticker wizard" />
-			<div class="w-full flex justify-center px-4">
-				<button class="border-2 border-white p-1 w-fit text-white text-xs" on:click={handleOnStart}
-					>start</button
-				>
+		<div class="absolute w-full h-full grid place-content-center">
+			<div style="width: 95vw">
+				<img class="w-full" src={titleSVG} alt="sticker wizard" />
+				<div class="w-full flex justify-center px-4">
+					<button
+						class="border-2 border-white p-1 w-fit text-white text-xs"
+						on:click={handleOnStart}>start</button
+					>
+				</div>
 			</div>
 		</div>
 	{:else if gameState == 'quiz'}
