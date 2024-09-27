@@ -7,6 +7,7 @@ import {
 
 export interface Machine {
 	dispenseSticker: (result: number) => Promise<void>;
+	helpDispenseSticker: (result: number) => Promise<void>;
 }
 
 interface MotorBoardConfig {
@@ -87,7 +88,18 @@ export const createMachine = async (): Promise<Machine> => {
 		}, dispenseTime);
 	};
 
+	const helpDispenseSticker = async (result: number) => {
+		const { pin, dispenseTime, dutyCycle } = MOTOR_TO_CONFIG[result];
+		const motorBoardClient = new VIAM.BoardClient(machine, 'motor-board');
+		await motorBoardClient.setPWMFrequency(`${pin}`, MOTOR_FREQ);
+		await motorBoardClient.setPWM(`${pin}`, dutyCycle);
+		await setTimeout(async () => {
+			await motorBoardClient.setGPIO(`${pin}`, false);
+		}, dispenseTime / 4);
+	};
+
 	return {
-		dispenseSticker
+		dispenseSticker,
+		helpDispenseSticker
 	};
 };

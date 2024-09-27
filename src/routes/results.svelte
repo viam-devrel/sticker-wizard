@@ -9,7 +9,7 @@
 	export let botIndex: number;
 	export let onRestart: () => void;
 
-	let showBackground = false;
+	let showResult = false;
 
 	let botNameElement: HTMLElement;
 	let emojiElement: HTMLElement;
@@ -25,8 +25,7 @@
 						botDescriptionElement.textContent = bot.description;
 						superpowerElement.textContent = `Superpower: ${bot.superpower}`;
 						fatalFlawElement.textContent = `Fatal flow: ${bot.fatalFlaw}`;
-						showBackground = true;
-						showDispenseStickerButton = true;
+						showResult = true;
 					});
 				});
 			}
@@ -35,10 +34,14 @@
 
 	let machine: Machine | undefined;
 
-	let showDispenseStickerButton = false;
+	let hasDispensedSticker = false;
 	const handleDispenseSticker = async () => {
-		showDispenseStickerButton = false;
-		machine?.dispenseSticker(botIndex);
+		if (hasDispensedSticker) {
+			machine?.helpDispenseSticker(botIndex);
+		} else {
+			hasDispensedSticker = true;
+			machine?.dispenseSticker(botIndex);
+		}
 	};
 
 	onMount(async () => {
@@ -57,7 +60,7 @@
 		</div>
 		<div
 			class={cx('text-sm flex flex-col gap-2 p-2', {
-				'bg-black bg-opacity-50': showBackground
+				'bg-black bg-opacity-50': showResult
 			})}
 		>
 			<p bind:this={botDescriptionElement}></p>
@@ -65,13 +68,13 @@
 			<p bind:this={fatalFlawElement}></p>
 		</div>
 
-		{#if showDispenseStickerButton}
+		{#if showResult}
 			<div class="mt-6 w-full flex flex-row justify-center">
 				<button
 					class="border-2 border-orange-500 p-1 w-fit text-white text-xs"
 					on:click={handleDispenseSticker}
 				>
-					give me my sticker!
+					{!hasDispensedSticker ? 'give me my sticker!' : 'help :('}
 				</button>
 			</div>
 		{/if}
