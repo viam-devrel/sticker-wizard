@@ -6,7 +6,7 @@
 	export let selectOption: (idx: number) => void;
 </script>
 
-<div class="bg-black text-white absolute top-4 right-4 py-2 max-w-[250px] flex flex-col gap-1">
+<div class="bg-black text-white absolute top-4 right-4 py-2 max-w-[300px] flex flex-col gap-1">
 	{#each options as option, idx}
 		<Option
 			text={option}
