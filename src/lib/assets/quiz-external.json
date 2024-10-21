@@ -1,0 +1,149 @@
+{
+	"bots": [
+		{
+			"name": "SMART MACHINE",
+			"emojis": "🧠🤓📚",
+			"description": "AI's all the rage, but it's no threat to you. You can't resist a good puzzle, and your brain seems to be an endless repository of random facts. You play chess, and you're considering taking up bridge. Your favorite “social media” used to be Quora, but these days, you mostly spend your time on Reddit and donate your smarts to ChatGPT.",
+			"superpower": "Photographic memory",
+			"fatalFlaw": "Leaving too many nits on PRs"
+		},
+		{
+			"name": "PHILOSOPHER BOT",
+			"emojis": "🪨❓💭",
+			"description": "What exactly is a robot? Does free will exist? Is a bump sensor a camera? These are the questions that keep you up at night. You're constantly asking \"why,\" coming up with new theories about the things around you, and resisting the urge to say \"ontology\" over lunch. You love nothing more than a good conversation, except maybe an accurate alignment chart.",
+			"superpower": "Naming variables",
+			"fatalFlaw": "Asking \"is a hot dog a sandwich?\" too many times"
+		},
+		{
+			"name": "ARTSY BOT",
+			"emojis": "🎨🖍️🌀",
+			"description": "You're charming, open-minded, and full of spunk. You've made multi-course meals with snacks and ingredients from the kitchen. You are an innovator, you're constantly pushing things to the edge. You enjoy being slightly intimidating, and you are secretly pleased when people respond \"I've never heard of that.\"",
+			"superpower": "Beautiful handwriting",
+			"fatalFlaw": "Your room is always a mess"
+		},
+		{
+			"name": "GHOST BOT",
+			"emojis": "👻💨💀",
+			"description": "You're a lurker. You love spying on people's phones on the subway. You don't talk much, but you're on top of all the gossip, all the time. You're a self-starter, independent, and self-reliant. Somehow, you get everything done without any struggle – it's otherworldly. It's almost like you've lived this life once before.",
+			"superpower": "Best halloween costume",
+			"fatalFlaw": "Always cold"
+		},
+		{
+			"name": "SPICY BOT",
+			"emojis": "🌶️💦🥵",
+			"description": "What would lunchtime be without you? With you around, there's never an awkward silence. You love nothing more than a good debate – you even have a list of \"hot takes\" in your notes app. Your life is never boring. You're always down to do it for the plot. And boy, that plot sure is thickening every day.",
+			"superpower": "Finished the hot ones challenge",
+			"fatalFlaw": "Finished the hot ones challenge"
+		},
+		{
+			"name": "PARTY BOT",
+			"emojis": "🍹🪩🎉",
+			"description": "The party don't start 'til you walk in… You've got the best playlist, the best energy, and of course – the best moves. You're constantly hosting, and you love nothing more than a good theme. You wouldn't be super useful on a stranded island, but everybody would want you there anyway. Karaoke anyone?",
+			"superpower": "Friends with everybody",
+			"fatalFlaw": "Throwing up at happy hour"
+		},
+		{
+			"name": "COZY BOT",
+			"emojis": "🛋️🪴🫖",
+			"description": "You are the physical embodiment of a cup of hot cocoa. Always at ease, you are the calm center of the office. You're a mom friend, you're always taking care of the people around you. You sign off emails with “warmly,” and you always seem to have a smile on your face. You have plants in your room and they're all thriving – no plant-watering robot needed.",
+			"superpower": "Best hugger",
+			"fatalFlaw": "Probably falling asleep"
+		},
+		{
+			"name": "SHORT-CIRCUIT BOT",
+			"emojis": "⚡🔌💧",
+			"description": "Let's be honest, you're not always doing your best work. But when you are, you're electric! Your comments often catch everyone by surprise. When the inspiration hits, it's impossible to stop the flow. You'd be a Tiktok hit, undoubtedly iconic. If only you knew how to make videos…",
+			"superpower": "Dankest memes",
+			"fatalFlaw": "Can't drive"
+		},
+		{
+			"name": "BARBIE BOT",
+			"emojis": "🎀💅💖",
+			"description": "ou genuinely love life, and your enthusiasm is contagious. You feel alive in the spotlight, and you're (not so secretly) dying to be featured in a man on the street interview. Every outfit of yours is a hit, so obviously you post a mirror selfie on Instagram on the daily. You know girlboss is supposed to be ironic these days, but you're not sure why and you're too afraid to ask.",
+			"superpower": "Never has a bad hair day",
+			"fatalFlaw": "Spreads microplastics"
+		}
+	],
+	"questions": [
+		{
+			"question": "How are you feeling today?",
+			"options": [
+				"Good! Ready to take on the day!",
+				"Calm, balanced, inspired.",
+				"Yawn….sorry what'd you say?",
+				"Feelings?",
+				"None of the above. I contain multitudes"
+			],
+			"associatedBots": [[9], [3], [4], [1], [2]]
+		},
+		{
+			"question": "If you could grant a robot any ability, what would you choose?",
+			"options": [
+				"Order my lunch every morning",
+				"Follow me around like an imprinted duckling",
+				"Emotions.",
+				"Dance to my playlist."
+			],
+			"associatedBots": [[1], [7], [2], [6]]
+		},
+		{
+			"question": "Which of the following fictional technologies do you hope is finally made possible by Viam?",
+			"options": [
+				"Flying cars",
+				"Star Trek Transportation Beam",
+				"Transformers",
+				"Willy Wonka's sky elevator",
+				"Soylent Green"
+			],
+			"associatedBots": [[9], [8], [6], [7], [2]]
+		},
+		{
+			"question": "My wizard amulet would be made of…",
+			"options": ["Metal", "Cardboard", "Glass", "PLA filament", "Electrical wires"],
+			"associatedBots": [[8], [2], [4], [5], [1]]
+		},
+		{
+			"question": "You've been invited to a tool party (a party for tools). Which tool do you bring?",
+			"options": [
+				"3D pen",
+				"Pneumatic staple gun",
+				"Chisel",
+				"Chainsaw",
+				"Screwdriver",
+				"Calipers"
+			],
+			"associatedBots": [[9], [6], [5], [1], [7]]
+		},
+		{
+			"question": "The wizard is conjuring a generative stew. Quick, grab something from the kitchen to add!",
+			"options": [
+				"Miniature beef jerky",
+				"Key Lime La Croix",
+				"Seaweed snack",
+				"Advil",
+				"The dishwasher drill bit"
+			],
+			"associatedBots": [[6], [3], [9], [2], [8]]
+		},
+		{
+			"question": "If you could have one Viam component as an extension of your body, what would it be?",
+			"options": ["Gantry", "Moisture sensor", "RGB display", "Wheeled base", "Camera", "Fake Arm"],
+			"associatedBots": [[1], [7], [3], [6], [8], [5]]
+		},
+		{
+			"question": "What's your alignment?",
+			"options": [
+				"Lawful good",
+				"Neutral good",
+				"Chaotic good",
+				"Lawful neutral",
+				"True neutral",
+				"Chaotic neutral",
+				"Lawful evil",
+				"Neutral evil",
+				"Chaotic evil"
+			],
+			"associatedBots": [[7], [1], [6], [9], [4], [5], [2], [3], [8]]
+		}
+	]
+}

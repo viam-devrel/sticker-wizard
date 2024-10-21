@@ -9,7 +9,7 @@
 	import titleSVG from '$lib/assets/title.svg';
 	import Results from './results.svelte';
 	import { Quiz, type Bot } from '$lib/quiz';
-	import quizJSON from '$lib/assets/quiz.json';
+	import quizJSON from '$lib/assets/quiz-external.json';
 
 	type State = 'rotate-phone' | 'title' | 'pre-quiz' | 'quiz' | 'results';
 
