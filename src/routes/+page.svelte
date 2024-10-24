@@ -111,18 +111,20 @@
 		</div>
 	{/if}
 
-	<Canvas>
-		<Scene
-			bind:this={scene}
-			{cameraPosition}
-			onCameraPositionChange={() => {
-				if (gameState === 'quiz') {
-					setTimeout(() => {
-						gameState = 'quiz';
-					}, 100);
-				}
-			}}
-			on:playerChange={handlePlayerPositionChange}
-		/>
-	</Canvas>
+	{#if gameState !== 'rotate-phone'}
+		<Canvas>
+			<Scene
+				bind:this={scene}
+				{cameraPosition}
+				onCameraPositionChange={() => {
+					if (gameState === 'quiz') {
+						setTimeout(() => {
+							gameState = 'quiz';
+						}, 100);
+					}
+				}}
+				on:playerChange={handlePlayerPositionChange}
+			/>
+		</Canvas>
+	{/if}
 </div>
