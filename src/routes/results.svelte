@@ -74,7 +74,7 @@
 					class="border-2 border-orange-500 p-1 w-fit text-white text-xs"
 					on:click={handleDispenseSticker}
 				>
-					{!hasDispensedSticker ? 'give me my sticker!' : 'help :('}
+					{!hasDispensedSticker ? 'give me my sticker!' : 'unstuck my sticker'}
 				</button>
 			</div>
 		{/if}

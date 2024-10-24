@@ -30,10 +30,13 @@
 
 	export const goToLadder = async () => {
 		state = 'walk-to-ladder';
-		task.x = -3 - mesh.position.x;
+
+		// Go to left or right side of ladder depending on which side the wizard is on
+		const ladderXPos = mesh.position.x > -2.5 ? -3 : -2;
+		task.x = ladderXPos - mesh.position.x;
 		task.y = 9.5;
 
-		// return when the player has reached the top
+		// Return when the player has reached the top
 		while (task.y !== 0) {
 			await wait(100);
 		}

@@ -83,7 +83,7 @@
 			bind:this={questionTextElement}
 			class="bg-white h-[64px] w-full bottom-0 p-3 leading-none border-4 border-gray-500"
 		></div>
-		
+
 		<button on:click={handleSelectOption}>
 			<div class="relative text-center">
 				<span class="absolute inset-0 py-1.5">Select</span>
