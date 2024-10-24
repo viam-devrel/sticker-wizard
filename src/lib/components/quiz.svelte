@@ -86,7 +86,7 @@
 
 		<button on:click={handleSelectOption}>
 			<div class="relative text-center">
-				<span class="absolute inset-0 py-1.5">Select</span>
+				<span class="absolute inset-0 py-1">Select</span>
 				<img src={SelectButtonBkgd} alt="select button" />
 			</div>
 		</button>

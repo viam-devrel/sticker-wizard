@@ -3,7 +3,6 @@
 	import Scene from './scene.svelte';
 	import { onMount, type SvelteComponent } from 'svelte';
 
-	import '../app.css';
 	import { Vector3 } from 'three';
 	import QuizComponent from '$lib/components/quiz.svelte';
 	import titleSVG from '$lib/assets/title.svg';
@@ -79,7 +78,7 @@
 <div class="relative w-dvh h-dvh lg:w-[568px] lg:h-[320px] bg-gray-800">
 	{#if gameState == 'title'}
 		<div class="absolute w-full h-full grid place-content-center">
-			<div style="width: 95vw">
+			<div style="w-11/12">
 				<img class="w-full" src={titleSVG} alt="sticker wizard" />
 				<div class="w-full flex justify-center px-4">
 					<button
@@ -111,20 +110,18 @@
 		</div>
 	{/if}
 
-	{#if gameState !== 'rotate-phone'}
-		<Canvas>
-			<Scene
-				bind:this={scene}
-				{cameraPosition}
-				onCameraPositionChange={() => {
-					if (gameState === 'quiz') {
-						setTimeout(() => {
-							gameState = 'quiz';
-						}, 100);
-					}
-				}}
-				on:playerChange={handlePlayerPositionChange}
-			/>
-		</Canvas>
-	{/if}
+	<Canvas>
+		<Scene
+			bind:this={scene}
+			{cameraPosition}
+			onCameraPositionChange={() => {
+				if (gameState === 'quiz') {
+					setTimeout(() => {
+						gameState = 'quiz';
+					}, 100);
+				}
+			}}
+			on:playerChange={handlePlayerPositionChange}
+		/>
+	</Canvas>
 </div>
