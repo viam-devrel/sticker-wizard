@@ -12,7 +12,7 @@ dependencies:
     specifier: ^8.1.2
     version: 8.12.0(@types/three@0.160.0)(svelte@4.2.19)(three@0.160.1)
   '@viamrobotics/sdk':
-    specifier: ^0.27.0
+    specifier: 0.27.0
     version: 0.27.0
   classnames:
     specifier: ^2.5.1
