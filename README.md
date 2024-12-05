@@ -1,8 +1,16 @@
-# create-svelte
+# sticker wizard!
+
+Sticker wizard is a sticker vending machine with a twist: you don't get to choose which sticker you get. Instead, you'll scan the QR code, take the "which robot are you?" personality quiz, and then receive the sticker you deserve (along with a free personality analysis). This tutorial will walk you through making your own vending machine from scratch, along with a web application that allows you to operate your machine from any device.
+
+This repository contains the web app user interface for the device, built with Svelte. For instructions on how to build sticker wizard from start to finish, see the [codelabs walkthrough](https://codelabs.viam.com/guide/sticker-wizard/index.html?index=..%2F..index#0).
+
+[![Watch the walkthrough video](https://img.youtube.com/vi/TB40-bLkjDg/maxresdefault.jpg)](https://www.youtube.com/watch?v=TB40-bLkjDg)
+
+## Svelte setup instructions
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## Creating a project
+### Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
 
@@ -14,7 +22,7 @@ npm create svelte@latest
 npm create svelte@latest my-app
 ```
 
-## Developing
+### Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
@@ -25,7 +33,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+### Building
 
 To create a production version of your app:
 
