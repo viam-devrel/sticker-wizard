@@ -6,6 +6,7 @@ This repository contains the web app user interface for the device, built with S
 
 [![Watch the walkthrough video](https://img.youtube.com/vi/TB40-bLkjDg/maxresdefault.jpg)](https://www.youtube.com/watch?v=TB40-bLkjDg)
 
+
 ## Svelte setup instructions
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
@@ -44,3 +45,21 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Webserver module configuration
+
+### Attributes
+
+The following attributes are available for this model:
+
+| Name                | Type    | Inclusion | Description                                                                         |
+| ------------------- | ------- | --------- | ----------------------------------------------------------------------------------- |
+| `port`              | integer | Optional  | Configure the port the webserver listens on. Default is `8888`                      |
+
+### Example configuration:
+
+```json
+{
+  "port": 33333
+}
+```
