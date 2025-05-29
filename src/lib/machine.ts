@@ -1,9 +1,4 @@
 import * as VIAM from '@viamrobotics/sdk';
-import {
-	PUBLIC_MACHINE_HOST,
-	PUBLIC_MACHINE_API_KEY,
-	PUBLIC_MACHINE_API_KEY_ID
-} from '$env/static/public';
 
 export interface Machine {
 	dispenseSticker: (result: number) => Promise<void>;
@@ -65,13 +60,28 @@ const MOTOR_TO_CONFIG: MotorBoardConfig[] = [
 ];
 const MOTOR_FREQ = 50;
 
+const getCookie = (name: string): string => {
+	console.log("Getting cookie", document.cookie);
+	const value = "; " + document.cookie;
+	const parts = value.split("; " + name + "=");
+
+	if (parts.length === 2) {
+		return parts.pop()?.split(";").shift() || "";
+	}
+	return "";
+}
 export const createMachine = async (): Promise<Machine> => {
+	// TODO: Fetch config attributes
+	let host: string = getCookie("host");
+	let publicAPIKey = getCookie("api-key");
+	let publicKeyId = getCookie("api-key-id");
+	
 	const machine = await VIAM.createRobotClient({
-		host: PUBLIC_MACHINE_HOST,
+		host: host,
 		credentials: {
 			type: 'api-key',
-			payload: PUBLIC_MACHINE_API_KEY,
-			authEntity: PUBLIC_MACHINE_API_KEY_ID
+			payload: publicAPIKey,
+			authEntity: publicKeyId
 		},
 		signalingAddress: 'https://app.viam.com:443'
 	});
