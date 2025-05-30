@@ -61,7 +61,6 @@ const MOTOR_TO_CONFIG: MotorBoardConfig[] = [
 const MOTOR_FREQ = 50;
 
 const getCookie = (name: string): string => {
-	console.log("Getting cookie", document.cookie);
 	const value = "; " + document.cookie;
 	const parts = value.split("; " + name + "=");
 
@@ -71,7 +70,6 @@ const getCookie = (name: string): string => {
 	return "";
 }
 export const createMachine = async (): Promise<Machine> => {
-	// TODO: Fetch config attributes
 	let host: string = getCookie("host");
 	let publicAPIKey = getCookie("api-key");
 	let publicKeyId = getCookie("api-key-id");
